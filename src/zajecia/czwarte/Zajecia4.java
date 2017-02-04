@@ -1,12 +1,10 @@
-package zajecia;
+package zajecia.czwarte;
 
-/**
- * Created by Szymon on 2017-02-04.
- */
+import java.util.Scanner;
+
 public class Zajecia4 {
     public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5, 6, 7, 8};
-        statistics(array);
+
     }
 
     public static void printLessThan(int number) {
@@ -52,11 +50,6 @@ public class Zajecia4 {
         System.out.println("Product of elements is: " + productOf(array));
         System.out.println("Number of even elements is: " + numberOfEven(array));
         System.out.println("Number of odd elements is: " + numberOfOdd(array));
-        //1. srednia elementow
-        //2. suma elementow
-        //3. iloczyn elementow
-        //4. ilosc parzystych elementow
-        //5. ilosc nieparzystych elementow
     }
 
     public static int numberOfOdd(int[] array) {
