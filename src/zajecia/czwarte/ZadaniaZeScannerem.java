@@ -4,16 +4,41 @@ import java.util.Scanner;
 
 public class ZadaniaZeScannerem {
     public static void main(String[] args) {
-        System.out.println("Grade system 2000 z.o.o");
-        double avg = avgOfGrades();
-        System.out.println("Avg of your grades is: " + avg);
+        calculator();
+    }
+
+    public static void calculator() {
+        System.out.println("1. Dodawanie");
+        System.out.println("2. Odejmowanie");
+        System.out.println("3. Mnozenie");
+        System.out.println("4. Dzielenie");
+        int operation = getNumberFromUser("Choose your desicison");
+        if (operation < 0 || operation > 4) {
+            System.out.println("Wrong data");
+        } else {
+            int firstNumber = getNumberFromUser("Insert first number");
+            int secondNumber = getNumberFromUser("Insert second number");
+            if (operation == 1) {
+                System.out.println(firstNumber + secondNumber);
+            } else if (operation == 2) {
+                System.out.println(firstNumber + " - " + secondNumber + " = " + (firstNumber - secondNumber));
+            } else if (operation == 3) {
+                System.out.println(firstNumber * secondNumber);
+            } else if (operation == 4) {
+                if (secondNumber == 0) {
+                    System.out.println("Wrong number");
+                } else {
+                    System.out.println(firstNumber / secondNumber);
+                }
+            }
+        }
     }
 
     public static double avgOfGrades() {
         int size = getNumberFromUser("Insert number of grades.");
         int[] array = new int[size];
-        for(int i = 0 ; i < array.length ; i++) {
-            array[i] = getNumberFromUser("Insert " + (i+1) + " grade:");
+        for (int i = 0; i < array.length; i++) {
+            array[i] = getNumberFromUser("Insert " + (i + 1) + " grade:");
         }
         return Zajecia4.avg(array);
     }
@@ -29,7 +54,7 @@ public class ZadaniaZeScannerem {
 
     public static int min(int[] array) {
         int min = array[0];
-        for (int i = 1 ; i < array.length ; i++) {
+        for (int i = 1; i < array.length; i++) {
             if (min > array[i]) {
                 min = array[i];
             }
@@ -39,7 +64,7 @@ public class ZadaniaZeScannerem {
 
     public static int max(int a, int b, int c) {
         int[] array = {a, b, c};
-        return max(new int[]{a,b,c});
+        return max(new int[]{a, b, c});
     }
 
     public static int max(int[] array) {
