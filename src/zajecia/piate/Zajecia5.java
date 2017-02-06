@@ -7,13 +7,6 @@ import java.util.Random;
 
 public class Zajecia5 {
     public static void main(String[] args) {
-//        oneMatrix(5);
-//        evenMatrix(4);
-//        square(3);
-//        triangle(3);
-//        tree(3);
-//        System.out.println(sumOfNumbersFromUser());
-//        printArray(arrayOfNumbersFromUser());
         Random random = new Random();
         int iloscKrokowDoZwyciestwa = game(random.nextInt(100));
         System.out.println("Koniec gry");
