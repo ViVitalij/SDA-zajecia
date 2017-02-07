@@ -7,26 +7,37 @@ import java.util.Random;
 
 public class Zajecia5 {
     public static void main(String[] args) {
+        numbersFromUserCounter();
+    }
+
+    public static void numbersFromUserPrint(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i]; j++) {
+                System.out.print(i);
+            }
+        }
+    }
+
+    public static void numbersFromUserCounter(){
+        int[] array = {0,0,0,0,0,0,0,0,0,0};
+        boolean flag = true;
+        while(flag){
+            int numbersFromUser=ZadaniaZeScannerem.getNumberFromUser();
+            if(numbersFromUser<0 || numbersFromUser>9){
+                flag=false;
+            }
+            else{
+                array[numbersFromUser]++;
+            }
+        }
+        numbersFromUserPrint(array);
+    }
+
+    public static void gameTest(){
         Random random = new Random();
         int iloscKrokowDoZwyciestwa = game(random.nextInt(100));
         System.out.println("Koniec gry");
         System.out.println("Wygrales w " + iloscKrokowDoZwyciestwa + " krokach.");
-    }
-
-    public static int[] arrayOfNumbersFromUser() {
-        int[] tmpArray = new int[100];
-        int size = 0;
-        boolean flag = true;
-        while (flag) {
-            int numberFromUser = ZadaniaZeScannerem.getNumberFromUser();
-            if (numberFromUser != 0) {
-                tmpArray[size] = numberFromUser;
-                size++;
-            } else {
-                flag = false;
-            }
-        }
-        return revriteArray(tmpArray, size);
     }
 
     public static int game(int number) {
@@ -45,7 +56,6 @@ public class Zajecia5 {
         }
         return counter;
     }
-
     public static void printArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
