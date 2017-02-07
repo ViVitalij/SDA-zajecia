@@ -5,9 +5,29 @@ import zajecia.czwarte.ZadaniaZeScannerem;
 /**
  * Created by m.losK on 2017-02-07.
  */
+
 public class Zajecia6 {
     public static void main(String[] args) {
-        calculator();
+        System.out.println(decodeCezarCode("Defg", 3));
+    }
+
+    public static String decodeCezarCode(String message, int key){
+        return cezarCode(message, -key);
+    }
+    public static String decodeCezarCode(String message){
+        return cezarCode(message, -1);
+    }
+
+    public static String cezarCode (String message){
+        return cezarCode(message, 1);
+    }
+
+    public static String cezarCode (String message, int key){
+        char[] messageArray = message.toCharArray();
+        for (int i = 0; i < messageArray.length ; i++) {
+            messageArray[i]=(char)(messageArray[i]+key);
+        }
+            return String.valueOf(messageArray);
     }
 
     public static void calculator() {
