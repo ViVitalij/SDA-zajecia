@@ -10,16 +10,16 @@ public class Zajecia5 {
         numbersFromUserCounter();
     }
 
-    public static void numbersFromUserPrint(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i]; j++) {
+    public static void numbersFromUserPrint(int[] orderedArray) {
+        for (int i = 0; i < orderedArray.length; i++) {
+            for (int j = 0; j < orderedArray[i]; j++) {
                 System.out.print(i);
             }
         }
     }
 
     public static void numbersFromUserCounter(){
-        int[] array = {0,0,0,0,0,0,0,0,0,0};
+        int[] array = new int[10];
         boolean flag = true;
         while(flag){
             int numbersFromUser=ZadaniaZeScannerem.getNumberFromUser();
