@@ -2,32 +2,88 @@ package zajecia.szoste;
 
 import zajecia.czwarte.ZadaniaZeScannerem;
 
+import java.util.*;
+import java.util.Map.Entry;
+
 /**
  * Created by m.losK on 2017-02-07.
  */
 
 public class Zajecia6 {
     public static void main(String[] args) {
-        System.out.println(decodeCezarCode("Defg", 3));
+        upgradeCharPrinter(upgradeCharCounter("Lorem Ipsum"));
     }
 
-    public static String decodeCezarCode(String message, int key){
+    public static void upgradeCharPrinter(TreeMap<Character, Integer> treemap) {
+        NavigableMap<Character, Integer> treemapincl = new TreeMap<Character, Integer>();
+        treemapincl = treemap.subMap('a', true, 'z', true);
+
+        //wyswietlanie podmapy od a-z
+        for (Entry<Character, Integer> entry : treemapincl.entrySet()) {
+            Character character = entry.getKey();
+            Integer value = entry.getValue();
+            System.out.printf("%s %s\n", character, value);
+        }
+
+        //wyswietlanie podmapy A-Z
+        NavigableMap<Character, Integer> treemapinclAZ = new TreeMap<Character, Integer>();
+        treemapinclAZ = treemap.subMap('A', true, 'Z', true);
+
+        for (Entry<Character, Integer> entry : treemapinclAZ.entrySet()) {
+            Character litera = entry.getKey();
+            Integer value = entry.getValue();
+            System.out.printf("%s %s\n", litera, value);
+        }
+    }
+
+    public static TreeMap<Character, Integer> upgradeCharCounter(String message) {
+        TreeMap<Character, Integer> treemap = new TreeMap<Character, Integer>();
+
+        for (char c : message.toCharArray()) {
+            Integer i = treemap.get(c);
+            if (i == null) {
+                i = 0;
+            }
+            treemap.put(c, i + 1);
+        }
+        return treemap;
+    }
+
+    public static void lowerCaseLetterPrinter(int[] orderedArray) {
+        for (int e : orderedArray) {
+            System.out.print(e);
+        }
+    }
+
+    public static int[] lowerCaseLetterCounter(String message) {
+        char[] messageArray = message.toCharArray();
+        int[] array = new int[26];
+        for (int i = 0; i < messageArray.length; i++) {
+            if (messageArray[i] > 0) {
+                array[(messageArray[i]) - 97]++;
+            }
+        }
+        return array;
+    }
+
+    public static String decodeCezarCode(String message, int key) {
         return cezarCode(message, -key);
     }
-    public static String decodeCezarCode(String message){
+
+    public static String decodeCezarCode(String message) {
         return cezarCode(message, -1);
     }
 
-    public static String cezarCode (String message){
+    public static String cezarCode(String message) {
         return cezarCode(message, 1);
     }
 
-    public static String cezarCode (String message, int key){
+    public static String cezarCode(String message, int key) {
         char[] messageArray = message.toCharArray();
-        for (int i = 0; i < messageArray.length ; i++) {
-            messageArray[i]=(char)(messageArray[i]+key);
+        for (int i = 0; i < messageArray.length; i++) {
+            messageArray[i] = (char) (messageArray[i] + key);
         }
-            return String.valueOf(messageArray);
+        return String.valueOf(messageArray);
     }
 
     public static void calculator() {
