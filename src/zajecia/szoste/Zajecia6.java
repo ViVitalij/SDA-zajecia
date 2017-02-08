@@ -11,8 +11,7 @@ import java.util.Map.Entry;
 
 public class Zajecia6 {
     public static void main(String[] args) {
-        int[]a = lowerCaseLetterCounter("adfafa");
-        lowerCaseLetterPrinter(a);
+        lowerCaseLetterPrinter(lowerCaseLetterCounter("Lorum Ipsum"));
     }
 
     public static void upgradeCharPrinter(TreeMap<Character, Integer> treemap) {
@@ -53,7 +52,7 @@ public class Zajecia6 {
     public static void lowerCaseLetterPrinter(int[] orderedArray) {
         for (int i = 0; i < orderedArray.length; i++) {
             for (int j = 0; j < orderedArray[i]; j++) {
-                System.out.print((char)i+97);
+                System.out.print((char)(i+97));
             }
         }
     }
@@ -62,7 +61,7 @@ public class Zajecia6 {
         char[] messageArray = message.toCharArray();
         int[] array = new int[26];
         for (int i = 0; i < messageArray.length; i++) {
-            if (messageArray[i] > 0) {
+            if (messageArray[i] > 96 && messageArray[i] < 123) {
                 array[(messageArray[i]) - 97]++;
             }
         }
