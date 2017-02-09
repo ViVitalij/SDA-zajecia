@@ -17,14 +17,14 @@ public class Zajecia7 {
 
         Stack<Character> stack = new Stack<Character>();
 
-        char c;
+        char current;
         for (int i = 0; i < message.length(); i++) {
-            c = message.charAt(i);
+            current = message.charAt(i);
 
-            if (c == '(') {
-                stack.push(c);
-            } else if (c == ')') {
-                if (stack.empty()) {
+            if (current == '(') {
+                stack.push(current);
+            } else if (current == ')') {
+                if (stack.isEmpty()) {
                     return false;
                 } else if (stack.peek() == '(') {
                     stack.pop();
@@ -35,7 +35,6 @@ public class Zajecia7 {
         return stack.empty();
     }
 
-    //Attention: method not working f.e. for "())(()". only for learning purpose, needs improvements
     public static boolean isParenthesisMatch(String message) {
         boolean flag = true;
         if (message.charAt(0) == ')') {
@@ -44,23 +43,21 @@ public class Zajecia7 {
         }
 
         int[] codePoints = message.codePoints().toArray();
-        int openingBracket = 0;
-        int closingBracket = 0;
+        int sumOfParethesis = 0;
 
         for (int element : codePoints) {
             if (element == '(') {
-                openingBracket++;
-            } else if (element == ')')
-                closingBracket++;
-            if (closingBracket < 0) {
-                flag = false;
+                sumOfParethesis++;
+            } else if (element == ')') {
+                sumOfParethesis--;
+                if (sumOfParethesis < 0) {
+                    flag = false;
+                }
             }
         }
-        if (openingBracket != closingBracket) {
+        if (sumOfParethesis != 0) {
             flag = false;
         }
-        System.out.println(openingBracket);
-        System.out.println(closingBracket);
         return flag;
     }
 
@@ -101,11 +98,11 @@ public class Zajecia7 {
         return flag;
     }
 
-    public static StringBuilder reverseStringUpgrade(String message) {
-        return new StringBuilder(message).reverse();
+    public static String reverseStringUpgrade(String message) {
+        return new StringBuilder(message).reverse().toString();
     }
 
-    //better to use StringBuilder
+    //better to use StringBuilder as above
     public static String reverseString(String message) {
         char[] messageArray = message.toCharArray();
         for (int i = 0; i < messageArray.length / 2; i++) {
@@ -136,8 +133,9 @@ public class Zajecia7 {
         return stringBuilder.toString();
     }
 
-/*  //Attention (deprecated) - ta metoda tworzy mnostwo smieci w pamieci rezerwujac dla kazdego stringa miejsce w pamieci! stringi sa immutable!!!
-    //uzyj StringBuildera, patrz wyzej
+/*
+//Attention (deprecated) - ta metoda tworzy mnostwo smieci w pamieci rezerwujac dla kazdego stringa miejsce w pamieci! stringi sa immutable!!!
+//uzyj StringBuildera, patrz wyzej
     public static String randomLowerCaseFAIL(int size) {
         Random random = new Random();
         String tmpMessage = "";
@@ -158,7 +156,7 @@ public class Zajecia7 {
         }
         return String.valueOf(charArray);
     }
- */
+*/
 
     //every next char is moving one letter further
     public static String cezarCodeExtended(String message, int key) {
