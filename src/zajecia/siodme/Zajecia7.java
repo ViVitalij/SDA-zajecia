@@ -36,11 +36,6 @@ public class Zajecia7 {
     }
 
     public static boolean isParenthesisMatch(String message) {
-        boolean flag = true;
-        if (message.charAt(0) == ')') {
-            flag = false;
-            return flag;
-        }
 
         int[] codePoints = message.codePoints().toArray();
         int sumOfParethesis = 0;
@@ -51,14 +46,11 @@ public class Zajecia7 {
             } else if (element == ')') {
                 sumOfParethesis--;
                 if (sumOfParethesis < 0) {
-                    flag = false;
+                    break;
                 }
             }
         }
-        if (sumOfParethesis != 0) {
-            flag = false;
-        }
-        return flag;
+        return sumOfParethesis==0;
     }
 
     public static int sumFromStringUpgrade(String message) {
