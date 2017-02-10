@@ -63,7 +63,7 @@ public class Zajecia5 {
         }
     }
 
-    public static int[] revriteArray(int[] bigArray, int size) {
+    public static int[] rewriteArray(int[] bigArray, int size) {
         int[] array = new int[size];
         for (int i = 0 ; i < size ; i++) {
             array[i] = bigArray[i];

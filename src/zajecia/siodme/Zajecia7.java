@@ -126,7 +126,7 @@ public class Zajecia7 {
     }
 
 /*
-//Attention (deprecated) - ta metoda tworzy mnostwo smieci w pamieci rezerwujac dla kazdego stringa miejsce w pamieci! stringi sa immutable!!!
+//Attention (discouraged) - ta metoda tworzy mnostwo smieci w pamieci rezerwujac dla kazdego stringa miejsce w pamieci! stringi sa immutable!!!
 //uzyj StringBuildera, patrz wyzej
     public static String randomLowerCaseFAIL(int size) {
         Random random = new Random();
@@ -139,7 +139,7 @@ public class Zajecia7 {
         return tmpMessage;
     }
 
-//Attention (deprecated) - ponizsza metoda tworzy mnostwo smieci w pamieci tworzac przy duzym sizie duza niepotrzebna tablice
+//Attention (discouraged) - ponizsza metoda tworzy mnostwo smieci w pamieci tworzac przy duzym sizie duza niepotrzebna tablice
     public static String randomLowerCase(int size){
         Random random = new Random();
         char[] charArray  = new char[size];

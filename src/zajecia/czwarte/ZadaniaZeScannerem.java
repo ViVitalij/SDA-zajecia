@@ -97,9 +97,9 @@ public class ZadaniaZeScannerem {
     }
 
     public static int getNumberFromUser(String message) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         System.out.println(message);
-        return scanner.nextInt();
+        return in.nextInt();
     }
 
     public static void checkNumberFromUser() {
