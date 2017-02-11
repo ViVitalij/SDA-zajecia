@@ -9,6 +9,11 @@ public class User {
     public String birthDate;
     public Address address;
 
+    public User(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public User(String firstName, String lastName, String birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
