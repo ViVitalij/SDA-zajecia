@@ -1,5 +1,6 @@
 package spojPL;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -21,7 +22,13 @@ public class TwoNumbersOfFactorial {
 
     public static int getNumberFromUser() {
         Scanner in = new Scanner(System.in);
-        return in.nextInt();
+        int l = 0;
+        try {
+            l = in.nextInt();
+        } catch (NoSuchElementException e) {
+            System.out.println();
+        }
+        return l;
     }
 
     public static int factorialOfDigitsRecursion(int number) {

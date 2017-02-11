@@ -35,7 +35,7 @@ public class Zajecia7 {
         return stack.empty();
     }
 
-    public static boolean isParendupathesisMatch(String message) {
+    public static boolean isParenthesisMatch(String message) {
 
         int[] codePoints = message.codePoints().toArray();
         int sumOfParethesis = 0;
@@ -50,7 +50,7 @@ public class Zajecia7 {
                 }
             }
         }
-        return sumOfParethesis==0;
+        return sumOfParethesis == 0;
     }
 
     public static int sumFromStringUpgrade(String message) {
