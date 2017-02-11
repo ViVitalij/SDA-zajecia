@@ -12,18 +12,19 @@ public class Zajecia9 {
         String message3 = "Lorem ipsum dolor sit amet.";
         Bookshelf bookShelf = new Bookshelf();
         Author henrykSienkiewicz = new Author("Henryk", "Sienkiewicz");
-        Book book = new Book("Ogniem i mieczem", henrykSienkiewicz, 2410, message.split(" "));
-        Book book2 = new Book("Ogniem i mieczem", new Author("Anna", "Maria"), 410, message2.split(" "));
-        Book book3 = new Book("Potop", henrykSienkiewicz, 110, message3.split(" "));
+        Title ogniemIMieczem = new Title("Ogniem i mieczem");
+        Book book = new Book(ogniemIMieczem, henrykSienkiewicz, 2410, message.split(" "));
+        Book book2 = new Book(ogniemIMieczem, new Author("Anna", "Maria"), 410, message2.split(" "));
+        Book book3 = new Book(new Title("Potop"), henrykSienkiewicz, 110, message3.split(" "));
         bookShelf.add(book);
         bookShelf.add(book2);
         bookShelf.add(book3);
         book.setCategory("Historyczna");
-        book2.setCategory("Historyczna");
-        book3.setCategory("Historyczna");
-        book.setDescription("Nudna");
+        book2.setCategory("Popularno-naukowa");
+        book3.setCategory("Romans");
+        book.setDescription("Ciekawa");
         book2.setDescription("Nudna");
-        book3.setDescription("Nudna");
+        book3.setDescription("Nie czytaj");
 
 
         ArrayList<Book> booksOf = bookShelf.getBooksOf("He");

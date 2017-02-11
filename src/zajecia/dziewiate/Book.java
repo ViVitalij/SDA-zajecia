@@ -4,7 +4,7 @@ package zajecia.dziewiate;
  * Created by m.losK on 2017-02-11.
  */
 public class Book {
-    private String title;
+    private Title title;
     private Author author;
     private int numberOfPages;
     private int realaseDate;
@@ -12,7 +12,7 @@ public class Book {
     private String category;
     private String[] contents;
 
-    public Book(String title, Author author, int realaseDate, String[] contents) {
+    public Book(Title title, Author author, int realaseDate, String[] contents) {
         this.title = title;
         this.author = author;
         this.realaseDate = realaseDate;
@@ -20,13 +20,13 @@ public class Book {
         this.numberOfPages = contents.length;
     }
 
-    public Book(String title, Author author, int realaseDate, String description, String category, String[] contents) {
+    public Book(Title title, Author author, int realaseDate, String description, String category, String[] contents) {
         this(title, author, realaseDate, contents);
         this.description = description;
         this.category = category;
     }
 
-    public String getTitle() {
+    public Title getTitle() {
         return title;
     }
 
