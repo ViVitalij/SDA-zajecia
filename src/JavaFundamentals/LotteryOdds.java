@@ -9,8 +9,8 @@ import zajecia.czwarte.ZadaniaZeScannerem;
  */
 public class LotteryOdds {
     public static void main(String[] args) {
-        int numberOfNumbers = ZadaniaZeScannerem.getNumberFromUser("How many numbers do you need to draw? ");
-        int highestNumber = ZadaniaZeScannerem.getNumberFromUser("What is the highest number you can draw? ");
+        int numberOfNumbers = ZadaniaZeScannerem.getNumberFromUser("How many numbers do you need to draw?");
+        int highestNumber = ZadaniaZeScannerem.getNumberFromUser("What is the highest number you can draw?");
         long lotteryOdds = calculatingLotteryOdds(numberOfNumbers, highestNumber);
         System.out.println("Your odds are 1 in " + lotteryOdds + ". Good luck!");
 
