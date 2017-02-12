@@ -1,4 +1,4 @@
-package JavaFundamentals;
+package JavaFundamentals.Lottery;
 
 import zajecia.czwarte.ZadaniaZeScannerem;
 
