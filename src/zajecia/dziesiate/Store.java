@@ -16,21 +16,22 @@ public class Store {
         return warehouse;
     }
 
-    public Order createOrder(Client client){
+    public Order createOrder(Client client) {
         return new Order(client, new HashMap<>());
     }
 
-    public void addToBasket(Order order, Product product, int amount){
+    public void addToBasket(Order order, Product product, int amount) {
         if (warehouse.hasAmount(product, amount)) {
             order.addToOrder(product, amount);
+            warehouse.get(product, amount);
         } else {
-            System.out.println("Sorry");
+            System.out.println("Sorry, out of stock!");
         }
     }
 
-    public void finish(Order order){
+    public void finish(Order order) {
         HashMap<Product, Integer> basket = order.getBasket();
-        basket.forEach(((productInBasket, amountOfProductInBasket) ->{
+        basket.forEach(((productInBasket, amountOfProductInBasket) -> {
             warehouse.get(productInBasket, amountOfProductInBasket);
         }));
         System.out.println(order.finish());

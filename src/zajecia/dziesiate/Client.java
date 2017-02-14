@@ -17,7 +17,7 @@ public class Client {
     }
 
     public Client(String firstName, String lastName, String phoneNumber, Address address) {
-       this(firstName, lastName);
+        this(firstName, lastName);
         this.address = address;
     }
 

@@ -1,6 +1,7 @@
 package zajecia.dziesiate;
 
-import java.nio.channels.Pipe;
+import javafx.util.Pair;
+
 import java.util.HashMap;
 
 /**
@@ -16,31 +17,30 @@ public class Warehouse {
 
     public boolean hasAmount(Product product, int amount) {
         boolean returnValue = false;
-        if (warehouse.containsKey(product)){
+        if (warehouse.containsKey(product)) {
             Integer amountInWarehouse = warehouse.get(product);
             return amount <= amountInWarehouse;
         }
         return returnValue;
-//  return warehouse.containsKey(product) && warehouse.get(product);    //another way
+//      return warehouse.containsKey(product) && warehouse.get(product);    //another way
     }
 
-    public HashMap<Product, Integer> get(Product product, int amount){
-        if (!hasAmount(product, amount)){
-            System.out.println("Brak towaru");
-            return new HashMap<>();     //
+    public Pair get(Product product, int amount) {
+        if (!hasAmount(product, amount)) {
+            System.out.println("Product is unavailable in the warehouse!");
+            return null;
         }
         warehouse.put(product, warehouse.get(product) - amount);
 
-        HashMap<Product, Integer> products = new HashMap<>();
-        products.put(product, amount);
+        Pair products = new Pair(product, amount);
         return products;
     }
 
     public void add(Product product, int amount) {
-        if(warehouse.containsKey(product)){
+        if (warehouse.containsKey(product)) {
             Integer amountInWarehouse = warehouse.get(product);
-            warehouse.put(product, amountInWarehouse+amount);
-        } else{
+            warehouse.put(product, amountInWarehouse + amount);
+        } else {
             warehouse.put(product, amount);
         }
     }

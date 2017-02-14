@@ -5,16 +5,16 @@ package zajecia.dziesiate;
  */
 public class Product {
     private String name;
-    private String description;
+    private String origin;
     private double price;
 
     public Product(String name) {
         this.name = name;
     }
 
-    public Product(String name, String description, double price) {
+    public Product(String name, String origin, double price) {
         this(name);
-        this.description = description;
+        this.origin = origin;
         this.price = price;
     }
 
@@ -22,16 +22,16 @@ public class Product {
         return name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getOrigin() {
+        return origin;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setOrigin(String origin) {
+        this.origin = origin;
     }
 
     public void setPrice(double price) {
@@ -40,6 +40,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return '[' + this.name + ", " + this.description + ", " + this.price + ']';
+        return '[' + this.name + ", " + this.origin + ", " + this.price + ']';
     }
 }
