@@ -56,7 +56,7 @@ public class Order {
     }
 
     public Date getDate() {
-        return date;
+        return (Date) date.clone();
     }
 
     public double getFullPrice() {
